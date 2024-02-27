@@ -1,24 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="annotator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdn-kq-8t5">
+                                <rect key="frame" x="159" y="794" width="75" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Pick"/>
+                                <connections>
+                                    <action selector="pickImageTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LJ4-5J-O8z"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g2I-LN-fWa">
+                                <rect key="frame" x="0.0" y="59" width="393" height="727"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esV-4Z-MSw" customClass="DrawingView" customModule="annotator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="59" width="393" height="727"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Tdn-kq-8t5" firstAttribute="top" secondItem="g2I-LN-fWa" secondAttribute="bottom" constant="8" id="2XB-OM-8fn"/>
+                            <constraint firstItem="esV-4Z-MSw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9Hn-nC-CCq"/>
+                            <constraint firstItem="g2I-LN-fWa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lh7-bG-QdW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tdn-kq-8t5" secondAttribute="trailing" constant="159" id="NLf-my-Eee"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="esV-4Z-MSw" secondAttribute="trailing" id="NZm-ln-sVP"/>
+                            <constraint firstAttribute="bottom" secondItem="Tdn-kq-8t5" secondAttribute="bottom" constant="23" id="RAw-D4-9Wj"/>
+                            <constraint firstItem="g2I-LN-fWa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Xcb-cV-QnS"/>
+                            <constraint firstItem="Tdn-kq-8t5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="159" id="YJa-z7-dlu"/>
+                            <constraint firstItem="Tdn-kq-8t5" firstAttribute="top" secondItem="esV-4Z-MSw" secondAttribute="bottom" constant="8" id="bqu-ME-sQh"/>
+                            <constraint firstItem="esV-4Z-MSw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="egQ-FR-gI9"/>
+                            <constraint firstItem="Tdn-kq-8t5" firstAttribute="top" secondItem="g2I-LN-fWa" secondAttribute="bottom" constant="8" id="oDx-F6-vG4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="g2I-LN-fWa" secondAttribute="trailing" id="sem-dN-PnH"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="drawingView" destination="esV-4Z-MSw" id="eCF-UA-oEg"/>
+                        <outlet property="imageView" destination="g2I-LN-fWa" id="va3-c7-wG8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="4.9295774647887329"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
